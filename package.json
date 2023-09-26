@@ -1,0 +1,23 @@
+{
+  "name": "sistema-recetas",
+  "version": "1.0.0",
+  "description": "sistema para recetas medicas",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byte-264/sistema-recetas.git"
+  },
+  "author": "byte255",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byte-264/sistema-recetas/issues"
+  },
+  "homepage": "https://github.com/byte-264/sistema-recetas#readme",
+  "devDependencies": {
+    "electron": "^26.2.2"
+  }
+}

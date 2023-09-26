@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #results {
+            margin-top: 10px;
+        }
+        .suggestion {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .suggestion:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="search" placeholder="Escribe el nombre del medicamento">
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('search').addEventListener('input', function(e) {
+            var searchQuery = e.target.value;
+
+            // Llama a tu API de medicamentos aquí con el valor de searchQuery
+            // Asegúrate de manejar correctamente las promesas y los errores
+            // Este es solo un ejemplo y puede que necesites ajustarlo según tu API
+            fetch('https://pokeapi.co/api/v2/pokemon/ditto' + searchQuery)
+                .then(response => response.json())
+                .then(data => {
+                    var resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+                    data.forEach(medicamento => {
+                        var div = document.createElement('div');
+                        div.textContent = medicamento.nombre;
+                        div.classList.add('suggestion');
+                        div.addEventListener('click', function() {
+                            document.getElementById('search').value = medicamento.nombre;
+                            resultsDiv.innerHTML = '';
+                        });
+                        resultsDiv.appendChild(div);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
